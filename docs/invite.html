@@ -32,7 +32,9 @@
   .store.ios { background:#fff; color:#0a0a0a; }
   .store.android { background:linear-gradient(180deg,#3FB46A,#2E8B4F); color:#06180E; }
   .store small { display:block; font-size:10px; font-weight:700; opacity:0.7; letter-spacing:0.5px; text-transform:uppercase; }
-  .terms { margin:24px auto 0; max-width:330px; font-size:11px; line-height:1.5; color:rgba(255,255,255,0.34); }
+  .howto { margin:24px auto 0; max-width:340px; font-size:13px; line-height:1.6; color:var(--dim); }
+  .howto b { color:var(--ink); font-weight:700; }
+  .terms { margin:18px auto 0; max-width:330px; font-size:11px; line-height:1.5; color:rgba(255,255,255,0.34); }
   .toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px); opacity:0;
     background:#11331F; color:var(--field); border:1px solid rgba(63,180,106,0.4); border-radius:999px;
     padding:10px 18px; font-size:13px; font-weight:700; transition:all .25s; pointer-events:none; }
@@ -59,6 +61,8 @@
       <a class="store android" id="androidBtn" href="#"><span><small>Get it on</small>Google Play</span></a>
     </div>
 
+    <p class="howto" id="howto">Tap a store button above — your code is copied automatically. After installing, just <b>open the app</b> and it's applied. Didn't catch? Enter <b id="howtoCode">your code</b> under <b>"Have a friend's code?"</b> on the home screen.</p>
+
     <p class="terms">Reward of 30,000 coins is credited to the inviting player after the new player completes their first match. One reward per new player; limits apply. Coins have no cash value.</p>
   </div>
 
@@ -73,6 +77,7 @@
   if (code) {
     document.getElementById('codeBox').style.display = 'flex';
     document.getElementById('codeVal').textContent = code;
+    var hc = document.getElementById('howtoCode'); if (hc) hc.textContent = code;
   }
 
   function showToast() {
