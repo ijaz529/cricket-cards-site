@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>You're invited — Cricket Cards Royale</title>
+<style>
+  :root { --bg:#07090B; --panel:#0E1418; --field:#3FB46A; --gold:#D4A14E; --ink:#F3F6F4; --dim:#9BA6A1; --line:rgba(255,255,255,0.08); }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; padding:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
+  .wrap { min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:32px 22px calc(32px + env(safe-area-inset-bottom)); text-align:center;
+    background:radial-gradient(120% 60% at 50% 0%, rgba(63,180,106,0.14), transparent 60%); }
+  .badge { width:74px; height:74px; border-radius:20px; background:linear-gradient(160deg,#123A24,#0A1A12);
+    border:1px solid rgba(63,180,106,0.4); display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:26px; color:var(--field); letter-spacing:-1px; margin-bottom:22px; }
+  .kicker { font-size:12px; font-weight:800; letter-spacing:3px; color:var(--field); text-transform:uppercase; margin:0 0 10px; }
+  h1 { font-size:30px; line-height:1.12; font-weight:900; letter-spacing:-0.8px; margin:0 0 6px; }
+  h1 .gold { color:var(--gold); }
+  .reward { font-size:15px; color:var(--dim); line-height:1.5; max-width:340px; margin:14px auto 0; }
+  .reward b { color:var(--ink); }
+  .code-box { margin:26px auto 4px; max-width:340px; background:var(--panel); border:1px solid var(--line);
+    border-radius:14px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .code-box .lbl { font-size:11px; font-weight:800; letter-spacing:1.5px; color:var(--dim); text-transform:uppercase; }
+  .code-box .val { font-size:20px; font-weight:900; letter-spacing:2px; font-variant-numeric:tabular-nums; }
+  .copybtn { background:rgba(63,180,106,0.14); color:var(--field); border:1px solid rgba(63,180,106,0.35);
+    border-radius:9px; padding:8px 12px; font-size:12px; font-weight:800; cursor:pointer; }
+  .stores { display:flex; flex-direction:column; gap:12px; width:100%; max-width:340px; margin:26px auto 0; }
+  .store { display:flex; align-items:center; justify-content:center; gap:10px; text-decoration:none;
+    height:56px; border-radius:14px; font-size:16px; font-weight:800; letter-spacing:0.2px; }
+  .store.ios { background:#fff; color:#0a0a0a; }
+  .store.android { background:linear-gradient(180deg,#3FB46A,#2E8B4F); color:#06180E; }
+  .store small { display:block; font-size:10px; font-weight:700; opacity:0.7; letter-spacing:0.5px; text-transform:uppercase; }
+  .terms { margin:24px auto 0; max-width:330px; font-size:11px; line-height:1.5; color:rgba(255,255,255,0.34); }
+  .toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px); opacity:0;
+    background:#11331F; color:var(--field); border:1px solid rgba(63,180,106,0.4); border-radius:999px;
+    padding:10px 18px; font-size:13px; font-weight:700; transition:all .25s; pointer-events:none; }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="badge">CC</div>
+    <p class="kicker">You've been invited</p>
+    <h1>Play <span class="gold">Cricket Cards<br>Royale</span></h1>
+    <p class="reward">Collect cricket legends and duel them stat-for-stat. Download, finish one match, and your friend earns <b>30,000 coins</b> — and you get a head start. <b>Numbers don't lie.</b></p>
+
+    <div class="code-box" id="codeBox" style="display:none">
+      <div style="text-align:left">
+        <div class="lbl">Your invite code</div>
+        <div class="val" id="codeVal">—</div>
+      </div>
+      <button class="copybtn" id="copyBtn">Copy</button>
+    </div>
+
+    <div class="stores">
+      <a class="store ios" id="iosBtn" href="#"><span><small>Download on the</small>App Store</span></a>
+      <a class="store android" id="androidBtn" href="#"><span><small>Get it on</small>Google Play</span></a>
+    </div>
+
+    <p class="terms">Reward of 30,000 coins is credited to the inviting player after the new player completes their first match. One reward per new player; limits apply. Coins have no cash value.</p>
+  </div>
+
+  <div class="toast" id="toast">Code copied — open the app after installing</div>
+
+<script>
+  var APPSTORE = 'https://apps.apple.com/app/id6766179623';
+  var PLAYSTORE = 'https://play.google.com/store/apps/details?id=com.clashcards.android.cricket';
+  var params = new URLSearchParams(location.search);
+  var code = (params.get('ref') || '').trim().toUpperCase();
+
+  if (code) {
+    document.getElementById('codeBox').style.display = 'flex';
+    document.getElementById('codeVal').textContent = code;
+  }
+
+  function showToast() {
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 2200);
+  }
+  function copyCode() {
+    if (!code) return Promise.resolve();
+    // Clipboard handoff: the app reads this on first launch to attribute the install.
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText('cricketcards-ref:' + code).then(showToast, function(){});
+      }
+    } catch (e) {}
+    return Promise.resolve();
+  }
+
+  document.getElementById('copyBtn') && document.getElementById('copyBtn').addEventListener('click', function () { copyCode(); });
+
+  function go(url) {
+    return function (e) {
+      e.preventDefault();
+      copyCode().then(function () { setTimeout(function () { location.href = url; }, 120); });
+    };
+  }
+  document.getElementById('iosBtn').addEventListener('click', go(APPSTORE));
+  document.getElementById('androidBtn').addEventListener('click', go(PLAYSTORE));
+
+  // Emphasise the likely store for this device (both stay tappable).
+  var ua = navigator.userAgent || '';
+  if (/android/i.test(ua)) { document.getElementById('iosBtn').style.opacity = '0.55'; }
+  else if (/iphone|ipad|ipod/i.test(ua)) { document.getElementById('androidBtn').style.opacity = '0.55'; }
+</script>
+</body>
+</html>
