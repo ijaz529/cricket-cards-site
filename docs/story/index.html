@@ -220,38 +220,42 @@
     </div>
   </section>
 
-  <!-- 7 · IMAGE GENERATION PIPELINE -->
-  <section class="slide" data-notes="With the data in place, the art. Every one of ~1,480 cards is AI-generated — not licensed photos. Each card gets two illustration prompts, an action shot and a portrait, in one consistent retro trading-card style. These are the actual prompts from the repo. No designer touched a card.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 6 · the art</div><h2>Every card is <span class="grad">generated.</span></h2></div>
-    <div class="fill row mt-s" style="gap:1.9vw;align-items:center">
-      <div class="col center"><div class="phone ph-h60"><img src="assets/s-kohli-ai.png" alt=""></div><div class="cap">AI illustration<small>Gemini · descriptor prompt</small></div></div>
-      <div class="col fill gap-s">
-        <div class="code"><span class="h k">▸ actual prompt · Virat Kohli</span>"V Kohli close-up portrait as a retro cricket card illustration, cricket batsman, blue Indian jersey, confident expression, <span class="y">head and upper body only — cropped at chest level</span>, vintage trading-card style, blue-and-saffron gradient, soft stadium bokeh…"</div>
-        <div class="code"><span class="h k">▸ action prompt</span>"SR Tendulkar … batsman in blue &amp; gold Mumbai Indians kit, <span class="y">playing a classic straight drive</span>, bat coming down straight, head over the ball, textbook footwork, dynamic composition…"</div>
-        <div class="row" style="gap:9px;flex-wrap:wrap"><span class="chip">gemini-2.5-flash-image</span><span class="chip y">action + portrait per card</span><span class="chip">~1,480 cards · 0 designers</span></div>
+  <!-- 7 · REAL PLAYER PHOTOS -->
+  <section class="slide" data-notes="With the data in place, the faces. Every card fronts a real photo of the player — headshots plus hand-picked action shots in the right kit, whites for Test, coloured jerseys for ODI and T20. Sourced from the Cricbuzz API and free-licensed archives like Wikimedia Commons, reviewed card by card, and every single image is credited on a public credits page.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 6 · the photos</div><h2>Real players, <span class="grad">real photos.</span></h2></div>
+    <div class="fill row mt-s" style="gap:2.2vw;align-items:center">
+      <div class="col center"><div class="phone ph-h60"><img src="assets/s-akram.png" alt=""></div><div class="cap">Wasim Akram<small>photo gallery · swipe through the years</small></div></div>
+      <div class="col fill gap-m">
+        <p class="lead">Every card fronts a <b>real photo</b> — a headshot plus hand-picked action shots in the right kit: whites for Test, coloured jerseys for ODI &amp; T20.</p>
+        <div class="flow" style="max-width:none">
+          <div class="node"><span class="nt">📸 Sourced</span><span class="nd">Cricbuzz API + free-licensed archives (Wikimedia Commons)</span></div><div class="arrow">→</div>
+          <div class="node g"><span class="nt">👀 Reviewed</span><span class="nd">checked card by card — right player, right era, right kit</span></div><div class="arrow">→</div>
+          <div class="node y"><span class="nt">🏷️ Credited</span><span class="nd">every image attributed on a public credits page</span></div>
+        </div>
+        <div class="row wrap gap-s"><span class="chip y">700+ real photos</span><span class="chip">format-specific galleries</span><span class="chip">every image credited</span></div>
       </div>
     </div>
   </section>
 
-  <!-- 8 · HEADSHOTS + SUPABASE CDN -->
-  <section class="slide" data-notes="Alongside the AI art, each card carries a real player headshot from the Cricbuzz API — the Kohli card here. Both the generated art and the real photos live in Supabase Storage and are served over a CDN; MongoDB just stores the URL. Bytes stay off the database, and images load fast worldwide.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 7 · photos &amp; delivery</div><h2>Real headshots, <span class="grad">served from a CDN.</span></h2></div>
+  <!-- 8 · SUPABASE CDN -->
+  <section class="slide" data-notes="And the delivery. All those photos live in Supabase Storage and are served over a CDN; MongoDB just stores the URL. Bytes stay off the database, and images load fast worldwide.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 7 · delivery</div><h2>Every photo, <span class="grad">served from a CDN.</span></h2></div>
     <div class="fill row mt-s" style="gap:2.2vw;align-items:center">
-      <div class="col center"><div class="phone ph-h60"><img src="assets/s-kohli.png" alt=""></div><div class="cap">Real headshot<small>Cricbuzz API photo</small></div></div>
+      <div class="col center"><div class="phone ph-h60"><img src="assets/s-kohli.png" alt=""></div><div class="cap">Virat Kohli<small>real photo · real career stats</small></div></div>
       <div class="col fill gap-m">
-        <p class="lead">Each card also gets a real photo — and every image, AI or photo, is delivered the same way.</p>
+        <p class="lead">One pipeline for every image in the game.</p>
         <div class="flow" style="max-width:none">
-          <div class="node y"><span class="nt">🎨 Gemini art + 📸 Cricbuzz headshot</span><span class="nd">generated + fetched</span></div><div class="arrow">→</div>
+          <div class="node y"><span class="nt">📸 Player photos</span><span class="nd">sourced + reviewed</span></div><div class="arrow">→</div>
           <div class="node g"><span class="nt">🗄️ Supabase Storage → CDN</span><span class="nd">public buckets · fast worldwide</span></div>
         </div>
         <p>MongoDB stores only the <b>URL</b> — the image bytes never touch the database.</p>
-        <div class="row wrap gap-s"><span class="chip y">public bucket</span><span class="chip y">CDN delivery</span><span class="chip">765 headshots</span></div>
+        <div class="row wrap gap-s"><span class="chip y">public bucket</span><span class="chip y">CDN delivery</span><span class="chip">700+ photos</span></div>
       </div>
     </div>
   </section>
 
   <!-- 9 · CLAUDE DESIGN → FRONT END -->
-  <section class="slide" data-notes="Now the front end. Claude Code built the screens as a working grey skeleton — every flow functional, unstyled. Then Claude Design turned it into the premium 'Pavilion' theme: dark navy, neon green, illustrated cards. Prove the flows while they're cheap to change; apply the paint once. The badge opens the live design spec.">
+  <section class="slide" data-notes="Now the front end. Claude Code built the screens as a working grey skeleton — every flow functional, unstyled. Then Claude Design turned it into the premium 'Pavilion' theme: dark navy, neon green, gold accents. Prove the flows while they're cheap to change; apply the paint once. The badge opens the live design spec.">
     <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 8 · the design</div><h2>Then the <span class="grad">front end.</span></h2></div>
     <div class="fill row mt-s" style="gap:2.4vw;align-items:center">
       <div class="col fill gap-m">
@@ -261,7 +265,11 @@
           <div class="node g" style="flex:1"><span class="nt">2 · Claude Design</span><span class="nd">a visual pass → the premium "Pavilion" theme on the right</span></div>
         </div>
         <p class="lead">Prove the flows while they're cheap to change. Apply the paint once they're settled — never the other way around.</p>
-        <div class="row wrap gap-s" style="gap:9px"><span class="chip">dark navy + neon green</span><span class="chip">illustrated cards</span><span class="chip">one design system</span></div>
+        <div class="row wrap gap-s" style="gap:9px"><span class="chip">dark navy + neon green</span><span class="chip">gold-trimmed cards</span><span class="chip">one design system</span></div>
+        <a href="https://claude.ai/design/p/019df775-4d5e-79cf-81ee-37615af965da?file=Cricket+Cards+Premium.html" target="_blank" style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;text-decoration:none;background:rgba(217,119,87,.1);border:1px solid rgba(217,119,87,.45);border-radius:999px;padding:8px 16px 8px 12px;margin-top:4px">
+          <svg width="22" height="22" viewBox="-50 -50 100 100" aria-hidden="true"><g stroke="#D97757" stroke-width="10" stroke-linecap="round"><line y1="-12" y2="-44"/><line y1="-12" y2="-44" transform="rotate(30)"/><line y1="-12" y2="-44" transform="rotate(60)"/><line y1="-12" y2="-44" transform="rotate(90)"/><line y1="-12" y2="-44" transform="rotate(120)"/><line y1="-12" y2="-44" transform="rotate(150)"/><line y1="-12" y2="-44" transform="rotate(180)"/><line y1="-12" y2="-44" transform="rotate(210)"/><line y1="-12" y2="-44" transform="rotate(240)"/><line y1="-12" y2="-44" transform="rotate(270)"/><line y1="-12" y2="-44" transform="rotate(300)"/><line y1="-12" y2="-44" transform="rotate(330)"/></g></svg>
+          <span style="font-weight:800;color:#e8c4b4;font-size:clamp(13px,1.15vw,15px);letter-spacing:.3px">Claude Design <span style="opacity:.55;font-weight:600">— open the spec &amp; demo →</span></span>
+        </a>
       </div>
       <div class="phone ph-h70 lift"><img src="assets/s-home.png" alt=""></div>
     </div>
@@ -270,7 +278,7 @@
   <!-- 10 · THE GAME · RULES -->
   <section class="slide" data-notes="The result — the game itself. It's a stat-comparison card game, Top Trumps for cricket. Hold a hand of real cricketers, call a stat each round, the better number wins the card (lower for bowling average and economy), most cards wins. Four formats, 15-second turns.">
     <div class="fill row mt-s" style="gap:2.2vw;align-items:center">
-      <div class="phone ph-h64"><img src="assets/s-onboard.png" alt=""></div>
+      <div class="phone ph-h64"><img src="assets/s-squadpick.png" alt=""></div>
       <div class="col fill gap-m">
         <div class="kicker">Chapter 9 · the game</div>
         <h2>Top Trumps, <span class="grad">for cricket.</span></h2>
@@ -287,13 +295,13 @@
   </section>
 
   <!-- 11 · GAMEPLAY IN ACTION -->
-  <section class="slide" data-notes="See it played. One stat decides each round — the better number captures the opponent's card. The duel, a round won, a round lost, and the final match result. Whoever holds the most cards takes the match.">
+  <section class="slide" data-notes="See it played. The toss decides who calls first — real lineups, real faces. Then one stat decides each round: the better number captures the opponent's card. Win or lose, every finished match drops free cards into your collection — two if you win.">
     <div class="col stagger" style="gap:6px"><div class="kicker">The game · in action</div><h2>Call a stat. <span class="grad">Better wins.</span></h2></div>
     <div class="grid4 fill mt-m" style="align-items:start">
+      <div class="col center"><div class="phone ph-h54"><img src="assets/s-toss.png" alt=""></div><div class="cap">The toss<small>real lineups · winner plays first</small></div></div>
       <div class="col center"><div class="phone ph-h54"><img src="assets/s-duel.png" alt=""></div><div class="cap">The duel<small>better stat wins the card</small></div></div>
       <div class="col center"><div class="phone ph-h54"><img src="assets/s-win.png" alt=""></div><div class="cap">Round won<small>higher number wins</small></div></div>
-      <div class="col center"><div class="phone ph-h54"><img src="assets/s-lose.png" alt=""></div><div class="cap">Round lost<small>lower number loses</small></div></div>
-      <div class="col center"><div class="phone ph-h54"><img src="assets/s-matchresult.png" alt=""></div><div class="cap">Match result<small>most cards wins · MOTM</small></div></div>
+      <div class="col center"><div class="phone ph-h54"><img src="assets/s-matchresult.png" alt=""></div><div class="cap">Match reward<small>free cards every match · 2 for a win</small></div></div>
     </div>
   </section>
 
@@ -319,10 +327,10 @@
   </section>
 
   <!-- 15 · SHIPPED -->
-  <section class="slide" data-notes="And it shipped — live on the App Store and Google Play, with live scores, AI cards and online play. From a deck of cards on a table to a real app on real phones.">
+  <section class="slide" data-notes="And it shipped — live on the App Store and Google Play, with real player photos, live scores, free card rewards and online play. From a deck of cards on a table to a real app on real phones.">
     <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 10 · shipped</div><h2>Live on <span class="grad">both stores.</span></h2></div>
     <div class="fill col center" style="gap:26px;justify-content:center">
-      <p class="lead center" style="max-width:820px">From a deck of cards on a table to a real game on real phones — iOS, Android, with live cricket scores.</p>
+      <p class="lead center" style="max-width:820px">From a deck of cards on a table to a real game on real phones — iOS, Android, live cricket scores, and a free card with every match.</p>
       <div class="row center" style="gap:42px">
         <div class="col center gap-s"><div class="qr" style="width:clamp(120px,13vw,160px)"><img src="assets/qr-appstore.png" alt=""></div><div class="badge-os"><span class="ico"></span><div><div class="t">Download on the</div><div class="s">App Store</div></div></div></div>
         <div class="col center gap-s"><div class="qr" style="width:clamp(120px,13vw,160px)"><img src="assets/qr-play.png" alt=""></div><div class="badge-os"><span class="ico">▶</span><div><div class="t">Get it on</div><div class="s">Google Play</div></div></div></div>
@@ -331,7 +339,7 @@
   </section>
 
   <!-- 16 · TAKEAWAY -->
-  <section class="slide" data-notes="The whole climb, in order: a deck of cards, a sketch, a prompt, the backend, the data, the art, the design, the store. Every tool here is available to anyone, mostly free. The barrier isn't code anymore — it's a clear idea, described well.">
+  <section class="slide" data-notes="The whole climb, in order: a deck of cards, a sketch, a prompt, the backend, the data, the photos, the design, the store. Every tool here is available to anyone, mostly free. The barrier isn't code anymore — it's a clear idea, described well.">
     <div class="col stagger" style="gap:6px"><div class="kicker">The takeaway</div><h2>From a deck of cards <span class="grad">to the App&nbsp;Store.</span></h2></div>
     <div class="fill col center" style="gap:34px;justify-content:center">
       <div class="tl" style="max-width:1200px">
@@ -340,11 +348,11 @@
         <div class="s"><span class="dot"></span><span class="t">📝 Prompt</span><span class="d">plain English</span></div>
         <div class="s"><span class="dot"></span><span class="t">⚙️ Backend</span><span class="d">API · DB · Railway</span></div>
         <div class="s"><span class="dot"></span><span class="t">📊 Data</span><span class="d">real stats → cards</span></div>
-        <div class="s"><span class="dot"></span><span class="t">🎨 Art + design</span><span class="d">AI cards, Pavilion UI</span></div>
+        <div class="s"><span class="dot"></span><span class="t">📸 Photos + design</span><span class="d">real players, Pavilion UI</span></div>
         <div class="s"><span class="dot"></span><span class="t green">🚀 Shipped</span><span class="d">on phones</span></div>
       </div>
       <div class="row wrap center gap-s" style="gap:10px;justify-content:center">
-        <span class="chip g">Claude Code</span><span class="chip g">Claude Design</span><span class="chip">Gemini</span><span class="chip">Cricbuzz</span><span class="chip">MongoDB</span><span class="chip">Supabase</span><span class="chip">Amplitude</span><span class="chip">Railway</span><span class="chip">React Native</span><span class="chip">NestJS</span>
+        <span class="chip g">Claude Code</span><span class="chip g">Claude Design</span><span class="chip">Cricbuzz</span><span class="chip">MongoDB</span><span class="chip">Supabase</span><span class="chip">Amplitude</span><span class="chip">Railway</span><span class="chip">React Native</span><span class="chip">NestJS</span>
       </div>
       <p class="center lead" style="text-align:center">The barrier was never the code. It was a <span class="green">clear idea</span>, described well.</p>
     </div>
