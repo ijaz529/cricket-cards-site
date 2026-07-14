@@ -317,13 +317,14 @@
   </section>
 
   <!-- 13 · LIVE SCORES -->
-  <section class="slide" data-notes="There's also a Live tab — real cricket, not mocked. A Cricbuzz real-time API feeds the NestJS backend, which caches it (60s while a match is live) so thousands of users cost one upstream call, then reshapes the messy JSON into exactly what each screen needs: today's matches grouped by type with a Major-only filter, and a live match with ball-by-ball commentary.">
+  <section class="slide" data-notes="There's also a Live tab — real cricket, not mocked. A Cricbuzz real-time API feeds the NestJS backend, which caches it (60s while a match is live) so thousands of users cost one upstream call, then reshapes the messy JSON into exactly what each screen needs: today's matches ranked cricinfo-style (ICC events and internationals first — women's included), full scorecards for both innings, and ball-by-ball commentary.">
     <div class="col stagger" style="gap:6px"><div class="kicker">And the Live tab · real cricket</div><h2>Real scores. <span class="grad">No scraping.</span></h2></div>
-    <div class="fill row center mt-s" style="gap:3vw;align-items:start">
-      <div class="col center"><div class="phone ph-h60"><img src="assets/s-live-home.png" alt=""></div><div class="cap">Today's matches<small>grouped by type · Major-only filter</small></div></div>
-      <div class="col center"><div class="phone ph-h60"><img src="assets/s-live-commentary.png" alt=""></div><div class="cap">Ball-by-ball<small>recent balls + live commentary</small></div></div>
+    <div class="fill row center mt-s" style="gap:2.4vw;align-items:start">
+      <div class="col center"><div class="phone ph-h54"><img src="assets/s-live-home.png" alt=""></div><div class="cap">Today's matches<small>ranked like cricinfo — internationals first</small></div></div>
+      <div class="col center"><div class="phone ph-h54"><img src="assets/s-live-scorecard.png" alt=""></div><div class="cap">Full scorecard<small>both innings · batters, bowlers, live chase</small></div></div>
+      <div class="col center"><div class="phone ph-h54"><img src="assets/s-live-commentary.png" alt=""></div><div class="cap">Ball-by-ball<small>recent balls + live commentary</small></div></div>
     </div>
-    <div class="row wrap center gap-s mt-s" style="gap:9px;justify-content:center"><span class="chip y">Cricbuzz API</span><span class="chip">60s cache</span><span class="chip">reshaped to the UI</span></div>
+    <div class="row wrap center gap-s mt-s" style="gap:9px;justify-content:center"><span class="chip y">Cricbuzz API</span><span class="chip">60s live cache</span><span class="chip">women's internationals included</span><span class="chip">reshaped to the UI</span></div>
   </section>
 
   <!-- 15 · SHIPPED -->
