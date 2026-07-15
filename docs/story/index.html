@@ -66,6 +66,11 @@
   .phone img{width:100%;height:100%;object-fit:cover;border-radius:22px;display:block;background:#0a141d}
   .phone::after{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:32%;height:11px;background:#0a141d;border-radius:0 0 11px 11px;z-index:3}
   .phone.lift{box-shadow:var(--shadow),0 0 60px -12px var(--glow)}.phone.tilt{transform:rotate(-3deg)}
+  /* .wide — frame matches the 920×1870 status-bar-cropped captures so the
+     shot is never edge-cropped; contain letterboxes mismatched shots on the
+     dark bezel instead of clipping them. */
+  .phone.wide{aspect-ratio:920/1870}
+  .phone.wide img{object-fit:contain}
   .ph-h70{height:70vh}.ph-h64{height:64vh}.ph-h60{height:60vh}.ph-h54{height:54vh}.ph-h44{height:44vh}.ph-h40{height:40vh}
   .cap{margin-top:11px;text-align:center;font-size:clamp(12px,1.1vw,16px);font-weight:750;color:#cdded5}
   .cap small{display:block;color:var(--faint);font-weight:500;font-size:.8em;margin-top:3px;line-height:1.35}
@@ -282,11 +287,10 @@
     </div>
   </section>
 
-  <!-- 10 · THE GAME · RULES -->
-  <section class="slide" data-notes="The result — the game itself. It's a stat-comparison card game, Top Trumps for cricket. Hold a hand of real cricketers, call a stat each round, the better number wins the card (lower for bowling average and economy), most cards wins. Four formats, 15-second turns.">
-    <div class="fill row mt-s" style="gap:2.2vw;align-items:center">
-      <div class="phone ph-h64"><img src="assets/s-home.png" alt=""></div>
-      <div class="col fill gap-m">
+  <!-- 10 · THE GAME · RULES + HOW TO PLAY -->
+  <section class="slide" data-notes="The result — the game itself. It's a stat-comparison card game, Top Trumps for cricket. Hold a hand of real cricketers, call a stat each round, the better number wins the card (lower for bowling average and economy), most cards wins. And the app teaches it in three screens: a starter squad dealt on first launch, a live stat-duel demo, and the format + opponent picker.">
+    <div class="fill row mt-s" style="gap:2vw;align-items:center">
+      <div class="col gap-m" style="flex:1;min-width:0">
         <div class="kicker">Chapter 9 · the game</div>
         <h2>Top Trumps, <span class="grad">for cricket.</span></h2>
         <div class="steps">
@@ -297,7 +301,9 @@
         </div>
         <div class="row wrap gap-s" style="gap:10px"><span class="chip g">Test</span><span class="chip g">ODI</span><span class="chip g">T20</span><span class="chip g">IPL</span></div>
       </div>
-      <div class="phone ph-h64"><img src="assets/s-matchresult.png" alt=""></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp1.png" alt=""></div><div class="cap">Welcome<small>starter squad, dealt free</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp2.png" alt=""></div><div class="cap">Live demo<small>call a stat · better wins</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp3.png" alt=""></div><div class="cap">Ready to clash<small>pick format &amp; opponent</small></div></div>
     </div>
   </section>
 
@@ -305,20 +311,20 @@
   <section class="slide" data-notes="See it played. The toss decides who calls first — real lineups, real faces. Then one stat decides each round: the better number captures the opponent's card. Win or lose, every finished match drops free cards into your collection — two if you win.">
     <div class="col stagger" style="gap:6px"><div class="kicker">The game · in action</div><h2>Call a stat. <span class="grad">Better wins.</span></h2></div>
     <div class="grid4 fill mt-m" style="align-items:start">
-      <div class="col center"><div class="phone ph-h54"><img src="assets/s-toss.png" alt=""></div><div class="cap">The toss<small>real lineups · winner plays first</small></div></div>
-      <div class="col center"><div class="phone ph-h54"><img src="assets/s-duel.png" alt=""></div><div class="cap">The duel<small>better stat wins the card</small></div></div>
-      <div class="col center"><div class="phone ph-h54"><img src="assets/s-win.png" alt=""></div><div class="cap">Round won<small>higher number wins</small></div></div>
-      <div class="col center"><div class="phone ph-h54"><img src="assets/s-matchresult.png" alt=""></div><div class="cap">Match reward<small>free cards every match · 2 for a win</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-toss.png" alt=""></div><div class="cap">The toss<small>real lineups · winner plays first</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-duel.png" alt=""></div><div class="cap">The duel<small>better stat wins the card</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-win.png" alt=""></div><div class="cap">Round won<small>higher number wins</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-matchresult.png" alt=""></div><div class="cap">Match reward<small>free cards every match · 2 for a win</small></div></div>
     </div>
   </section>
 
   <!-- 12 · THE SURFACES -->
-  <section class="slide" data-notes="And the surfaces: Store sells players and packs for coins; Collection is your squad with format and role filters; Match is the head-to-head duel; and every card opens to full real career stats. Every screenshot is the real app.">
+  <section class="slide" data-notes="And the surfaces: Store sells players and packs for coins; Collection is your squad with format and role filters; Home is the hub — modes, streaks, your cards; and every card opens to full real career stats. Every screenshot is the real app.">
     <div class="col stagger" style="gap:6px"><div class="kicker">The surfaces</div><h2>Four taps, four worlds.</h2></div>
     <div class="grid4 fill mt-m" style="align-items:start">
       <div class="col center"><div class="phone ph-h60"><img src="assets/s-store.png" alt=""></div><div class="cap">🛒 Store<small>buy players &amp; packs for coins</small></div></div>
       <div class="col center"><div class="phone ph-h60"><img src="assets/s-collection.png" alt=""></div><div class="cap">📦 Collection<small>your squad · filter by format/role</small></div></div>
-      <div class="col center"><div class="phone ph-h60"><img src="assets/s-match.png" alt=""></div><div class="cap">⚡ Match<small>head-to-head, on real data</small></div></div>
+      <div class="col center"><div class="phone ph-h60"><img src="assets/s-home.png" alt=""></div><div class="cap">🏠 Home<small>modes · streaks · your cards</small></div></div>
       <div class="col center"><div class="phone ph-h60"><img src="assets/s-carddetail.png" alt=""></div><div class="cap">👤 Player<small>real career stats &amp; tiers</small></div></div>
     </div>
   </section>
