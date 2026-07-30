@@ -168,7 +168,7 @@
           <div class="step"><span class="b">1</span><div><div class="st">Hold a hand of cards</div><div class="sd">real cricketers — batsmen, bowlers, all-rounders</div></div></div>
           <div class="step"><span class="b">2</span><div><div class="st">Call a stat each round</div><div class="sd">pick your strongest number — runs, wickets, strike rate</div></div></div>
           <div class="step"><span class="b">3</span><div><div class="st">Better number wins</div><div class="sd">higher wins — <span class="gold">lower</span> for bowling average &amp; economy</div></div></div>
-          <div class="step"><span class="b">4</span><div><div class="st">Capture the card</div><div class="sd">most cards wins the match · 15-second turns</div></div></div>
+          <div class="step"><span class="b">4</span><div><div class="st">Capture the card</div><div class="sd">most cards wins the match · 30-second turns</div></div></div>
         </div>
         <div class="row wrap gap-s" style="gap:10px"><span class="chip g">Test</span><span class="chip g">ODI</span><span class="chip g">T20</span><span class="chip g">IPL</span></div>
       </div>
@@ -289,12 +289,12 @@
         <div class="node"><span class="nt">🍃 MongoDB</span><span class="nd">one document per player · cron-refreshed</span></div>
       </div>
       <div class="panel glow" style="padding:7px;border-radius:13px"><img src="assets/d-mongodb.png" alt="" style="max-height:42vh;width:auto;max-width:100%;border-radius:7px;display:block"></div>
-      <div class="row wrap center gap-s"><span class="chip y">real career stats</span><span class="chip">986 players</span><span class="chip">cron auto-refresh</span></div>
+      <div class="row wrap center gap-s"><span class="chip y">real career stats</span><span class="chip">651 active cards</span><span class="chip">cron auto-refresh</span></div>
     </div>
   </section>
 
   <!-- 7 · REAL PLAYER PHOTOS + DELIVERY (merged) -->
-  <section class="slide" data-notes="Every card fronts a real photo — sourced from Cricbuzz and free-licensed archives, reviewed card by card, credited on a public page, and served worldwide from a Supabase CDN. MongoDB stores only the URL; the image bytes never touch the database.">
+  <section class="slide" data-notes="Every card fronts a real photo — sourced from Cricbuzz and free-licensed archives, reviewed card by card, credited on a public page, and served worldwide from a CDN. MongoDB stores only the URL; the image bytes never touch the database.">
     <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 6 · the photos</div><h2>Real players, <span class="grad">real photos.</span></h2></div>
     <div class="fill row mt-s" style="gap:1.9vw;align-items:center">
       <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-akram.png" alt=""></div><div class="cap">Photo gallery<small>Wasim Akram · swipe through the years</small></div></div>
@@ -302,23 +302,23 @@
       <div class="col fill gap-s">
         <div class="code"><span class="h k">▸ the photo pipeline</span>Cricbuzz API + Wikimedia Commons → reviewed card by card — right player, right era, right kit → <span class="y">headshot + action galleries</span> on 700+ cards</div>
         <div class="code"><span class="h k">▸ the credits</span>every free-licensed image attributed on a <span class="y">public credits page</span> — licence + photographer, per photo</div>
-        <div class="code"><span class="h k">▸ the delivery</span>Supabase Storage → public bucket → CDN — MongoDB stores <span class="y">only the URL</span>; the image bytes never touch the database</div>
-        <div class="row" style="gap:9px;flex-wrap:wrap"><span class="chip">Wikimedia Commons</span><span class="chip y">licensed + credited</span><span class="chip">Supabase CDN</span><span class="chip">700+ real photos</span></div>
+        <div class="code"><span class="h k">▸ the delivery</span>stored once in a public bucket, served from a CDN — MongoDB stores <span class="y">only the URL</span>; the image bytes never touch the database</div>
+        <div class="row" style="gap:9px;flex-wrap:wrap"><span class="chip">Wikimedia Commons</span><span class="chip y">licensed + credited</span><span class="chip">CDN-served</span><span class="chip">700+ real photos</span></div>
       </div>
     </div>
   </section>
 
   <!-- 8 · DATA & STORAGE -->
-  <section class="slide" data-notes="The data layer up close. MongoDB Atlas is the source of truth — every card, user and match as documents. Supabase Storage is the photo CDN — the cricket-players bucket serves every headshot and action shot worldwide. The NestJS API rides Railway, deployed on every push.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 7 · data &amp; storage</div><h2><span class="grad">MongoDB</span> + <span class="grad">Supabase.</span></h2></div>
-    <div class="fill row mt-s" style="gap:1.8vw;align-items:stretch">
+  <section class="slide" data-notes="The data layer up close. MongoDB Atlas is the source of truth — every card, user and match as documents. The NestJS API rides Railway, deployed on every push; photos live in a public CDN bucket and Mongo stores only the URL.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 7 · data &amp; storage</div><h2><span class="grad">MongoDB</span> + <span class="grad">Railway.</span></h2></div>
+    <div class="fill row mt-s" style="gap:1.5vw;align-items:stretch">
       <div class="col" style="flex:1;gap:9px">
         <div class="panel" style="padding:7px;border-radius:12px"><img src="assets/d-mongodb.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
         <div><h3 class="green">🍃 MongoDB Atlas — the data layer</h3><p style="margin-top:3px">Every card, user and match — the source of truth. <span class="chip" style="margin-left:4px">651 active cards</span> <span class="chip">users</span> <span class="chip">matches</span></p></div>
       </div>
       <div class="col" style="flex:1;gap:9px">
-        <div class="panel glow" style="padding:7px;border-radius:12px"><img src="assets/d-supabase-store.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
-        <div><h3 class="gold">⚡ Supabase Storage — the photo CDN</h3><p style="margin-top:3px">The <b>cricket-players</b> bucket serves every photo worldwide; the API rides Railway, deployed on push. <span class="chip y" style="margin-left:4px">public bucket</span> <span class="chip y">🚂 Railway API</span></p></div>
+        <div class="panel" style="padding:7px;border-radius:12px"><img src="assets/d-railway.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
+        <div><h3 class="gold">🚂 Railway — the API</h3><p style="margin-top:3px">The NestJS backend, deployed on every push to main — photos ride a public CDN bucket, Mongo keeps only the URL. <span class="chip y" style="margin-left:4px">build → deploy → live</span> <span class="chip y">/health check</span></p></div>
       </div>
     </div>
   </section>
@@ -360,7 +360,7 @@
         <div class="s"><span class="dot"></span><span class="t green">🚀 Shipped</span><span class="d">on phones</span></div>
       </div>
       <div class="row wrap center gap-s" style="gap:10px;justify-content:center">
-        <span class="chip g">Claude Code</span><span class="chip g">Claude Design</span><span class="chip">Cricbuzz</span><span class="chip">MongoDB</span><span class="chip">Supabase</span><span class="chip">Amplitude</span><span class="chip">Railway</span><span class="chip">React Native</span><span class="chip">NestJS</span>
+        <span class="chip g">Claude Code</span><span class="chip g">Claude Design</span><span class="chip">Cricbuzz</span><span class="chip">MongoDB</span><span class="chip">Amplitude</span><span class="chip">Railway</span><span class="chip">React Native</span><span class="chip">NestJS</span>
       </div>
       <p class="center lead" style="text-align:center">The barrier was never the code. It was a <span class="green">clear idea</span>, described well.</p>
     </div>
