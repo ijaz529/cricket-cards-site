@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Zero Lines of Code — The Build Story</title>
+<title>Zero Lines of Code — The Build Story (story-first)</title>
 <style>
   :root{
     --bg:#0b0a07; --bg3:#12100b; --ink:#f1eadc; --muted:#b3aa95; --faint:#847b68;
@@ -158,66 +158,6 @@
     </div>
   </section>
 
-  <!-- 10 · THE GAME · RULES + HOW TO PLAY -->
-  <section class="slide" data-notes="The result — the game itself. It's a stat-comparison card game, Top Trumps for cricket. Hold a hand of real cricketers, call a stat each round, the better number wins the card (lower for bowling average and economy), most cards wins. And the app teaches it in three screens: a starter squad dealt on first launch, a live stat-duel demo, and the format + opponent picker.">
-    <div class="fill row mt-s" style="gap:2vw;align-items:center">
-      <div class="col gap-m" style="flex:1;min-width:0">
-        <div class="kicker">The game · how it plays</div>
-        <h2>Top Trumps, <span class="grad">for cricket.</span></h2>
-        <div class="steps">
-          <div class="step"><span class="b">1</span><div><div class="st">Hold a hand of cards</div><div class="sd">real cricketers — batsmen, bowlers, all-rounders</div></div></div>
-          <div class="step"><span class="b">2</span><div><div class="st">Call a stat each round</div><div class="sd">pick your strongest number — runs, wickets, strike rate</div></div></div>
-          <div class="step"><span class="b">3</span><div><div class="st">Better number wins</div><div class="sd">higher wins — <span class="gold">lower</span> for bowling average &amp; economy</div></div></div>
-          <div class="step"><span class="b">4</span><div><div class="st">Capture the card</div><div class="sd">most cards wins the match · 30-second turns</div></div></div>
-        </div>
-        <div class="row wrap gap-s" style="gap:10px"><span class="chip g">Test</span><span class="chip g">ODI</span><span class="chip g">T20</span><span class="chip g">IPL</span></div>
-      </div>
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp1.png" alt=""></div><div class="cap">Welcome<small>starter squad, dealt free</small></div></div>
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp2.png" alt=""></div><div class="cap">Live demo<small>call a stat · better wins</small></div></div>
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp3.png" alt=""></div><div class="cap">Ready to clash<small>pick format &amp; opponent</small></div></div>
-    </div>
-  </section>
-
-  <!-- 11 · GAMEPLAY IN ACTION -->
-  <section class="slide" data-notes="See it played. The toss decides who calls first — real lineups, real faces. Then one stat decides each round: the better number captures the opponent's card. Win or lose, every finished match drops free cards into your collection — two if you win.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">The game · in action</div><h2>Call a stat. <span class="grad">Better wins.</span></h2></div>
-    <div class="grid4 fill mt-m" style="align-items:start">
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-toss.png" alt=""></div><div class="cap">The toss<small>real lineups · winner plays first</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-match.png" alt=""></div><div class="cap">Call a stat<small>your card, your call — 30s a turn</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-win.png" alt=""></div><div class="cap">Round won<small>better number takes the card</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-reward.png" alt=""></div><div class="cap">Match reward<small>a free card every match · 2 for a win</small></div></div>
-    </div>
-  </section>
-
-  <!-- 12 · THE SURFACES -->
-  <section class="slide" data-notes="And the surfaces: Store sells players and packs for coins; Collection is your squad with format and role filters; Home is the hub — modes, streaks, your cards; and every card opens to full real career stats. Every screenshot is the real app.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">The surfaces</div><h2>Four tabs, the whole game.</h2></div>
-    <div class="grid4 fill mt-m" style="align-items:start">
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-store.png" alt=""></div><div class="cap">🛒 Store<small>buy players &amp; packs for coins</small></div></div>
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-collection.png" alt=""></div><div class="cap">📦 Collection<small>your squad · filter by format/role</small></div></div>
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-home.png" alt=""></div><div class="cap">🏠 Home<small>modes · streaks · your cards</small></div></div>
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-carddetail.png" alt=""></div><div class="cap">👤 Player<small>real career stats &amp; tiers</small></div></div>
-    </div>
-  </section>
-
-  <!-- 13 · LIVE SCORES -->
-  <section class="slide" data-notes="There's also a Live tab — real cricket, not mocked. A Cricbuzz real-time API feeds the NestJS backend, which caches it (60s while a match is live) so thousands of users cost one upstream call, then reshapes the messy JSON into exactly what each screen needs: today's matches ranked cricinfo-style (ICC events and internationals first — women's included), full scorecards for both innings, and ball-by-ball commentary.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">And the Live tab · real cricket</div><h2>Real scores. <span class="grad">No scraping.</span></h2></div>
-    <div class="fill row mt-s" style="gap:3vw;align-items:center">
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-live-home.png" alt=""></div><div class="cap">Live · ball-by-ball<small>score header + commentary</small></div></div>
-      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-live-scorecard.png" alt=""></div><div class="cap">Full scorecard<small>both innings · the live chase</small></div></div>
-      <div class="col fill gap-m">
-        <p class="lead">The Live tab is real cricket, not mocked — today's matches, full scorecards and ball-by-ball commentary, straight from the Cricbuzz API.</p>
-        <div class="steps">
-          <div class="step"><span class="b n">1</span><div><div class="st">Fetch</div><div class="sd">Cricbuzz API — live matches · scorecards · commentary · series &amp; squads</div></div></div>
-          <div class="step"><span class="b n">2</span><div><div class="st">Cache &amp; rank</div><div class="sd">NestJS proxy · 60s live cache · ranked cricinfo-style — internationals first</div></div></div>
-          <div class="step"><span class="b n">3</span><div><div class="st">Render</div><div class="sd">series pills · both innings · batters, bowlers &amp; the live chase</div></div></div>
-        </div>
-        <div class="row wrap gap-s" style="gap:9px"><span class="chip y">Cricbuzz API</span><span class="chip">one upstream call for all users</span></div>
-      </div>
-    </div>
-  </section>
-
   <!-- 2 · THE CARDS (bought) -->
   <section class="slide" data-notes="It started with a deck of cards. Before any code — before even the sketch — I bought this 'ODI Cricket Legends' Top Trumps deck online and scanned it. The whole game is here: years active, the player photo, name and flag, the same grid of stats. The app is the digital, living version of this.">
     <div class="col stagger" style="gap:6px"><div class="kicker gold">Chapter 1 · the spark</div><h2>It started with <span class="grad">a deck of cards.</span></h2></div>
@@ -362,6 +302,66 @@
       <div class="col" style="flex:1;gap:9px">
         <div class="panel" style="padding:7px;border-radius:12px"><img src="assets/d-appstore-page.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
         <div><h3 class="green">🍏 The App Store — live</h3><p style="margin-top:3px">The end of the line: the approved build on its real product page, downloadable by anyone today. <span class="chip" style="margin-left:4px">Cricket Cards Royale</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · THE GAME · RULES + HOW TO PLAY -->
+  <section class="slide" data-notes="The result — the game itself. It's a stat-comparison card game, Top Trumps for cricket. Hold a hand of real cricketers, call a stat each round, the better number wins the card (lower for bowling average and economy), most cards wins. And the app teaches it in three screens: a starter squad dealt on first launch, a live stat-duel demo, and the format + opponent picker.">
+    <div class="fill row mt-s" style="gap:2vw;align-items:center">
+      <div class="col gap-m" style="flex:1;min-width:0">
+        <div class="kicker">The game · how it plays</div>
+        <h2>Top Trumps, <span class="grad">for cricket.</span></h2>
+        <div class="steps">
+          <div class="step"><span class="b">1</span><div><div class="st">Hold a hand of cards</div><div class="sd">real cricketers — batsmen, bowlers, all-rounders</div></div></div>
+          <div class="step"><span class="b">2</span><div><div class="st">Call a stat each round</div><div class="sd">pick your strongest number — runs, wickets, strike rate</div></div></div>
+          <div class="step"><span class="b">3</span><div><div class="st">Better number wins</div><div class="sd">higher wins — <span class="gold">lower</span> for bowling average &amp; economy</div></div></div>
+          <div class="step"><span class="b">4</span><div><div class="st">Capture the card</div><div class="sd">most cards wins the match · 30-second turns</div></div></div>
+        </div>
+        <div class="row wrap gap-s" style="gap:10px"><span class="chip g">Test</span><span class="chip g">ODI</span><span class="chip g">T20</span><span class="chip g">IPL</span></div>
+      </div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp1.png" alt=""></div><div class="cap">Welcome<small>starter squad, dealt free</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp2.png" alt=""></div><div class="cap">Live demo<small>call a stat · better wins</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-htp3.png" alt=""></div><div class="cap">Ready to clash<small>pick format &amp; opponent</small></div></div>
+    </div>
+  </section>
+
+  <!-- 11 · GAMEPLAY IN ACTION -->
+  <section class="slide" data-notes="See it played. The toss decides who calls first — real lineups, real faces. Then one stat decides each round: the better number captures the opponent's card. Win or lose, every finished match drops free cards into your collection — two if you win.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">The game · in action</div><h2>Call a stat. <span class="grad">Better wins.</span></h2></div>
+    <div class="grid4 fill mt-m" style="align-items:start">
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-toss.png" alt=""></div><div class="cap">The toss<small>real lineups · winner plays first</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-match.png" alt=""></div><div class="cap">Call a stat<small>your card, your call — 30s a turn</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-win.png" alt=""></div><div class="cap">Round won<small>better number takes the card</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-reward.png" alt=""></div><div class="cap">Match reward<small>a free card every match · 2 for a win</small></div></div>
+    </div>
+  </section>
+
+  <!-- 12 · THE SURFACES -->
+  <section class="slide" data-notes="And the surfaces: Store sells players and packs for coins; Collection is your squad with format and role filters; Home is the hub — modes, streaks, your cards; and every card opens to full real career stats. Every screenshot is the real app.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">The surfaces</div><h2>Four tabs, the whole game.</h2></div>
+    <div class="grid4 fill mt-m" style="align-items:start">
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-store.png" alt=""></div><div class="cap">🛒 Store<small>buy players &amp; packs for coins</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-collection.png" alt=""></div><div class="cap">📦 Collection<small>your squad · filter by format/role</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-home.png" alt=""></div><div class="cap">🏠 Home<small>modes · streaks · your cards</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-carddetail.png" alt=""></div><div class="cap">👤 Player<small>real career stats &amp; tiers</small></div></div>
+    </div>
+  </section>
+
+  <!-- 13 · LIVE SCORES -->
+  <section class="slide" data-notes="There's also a Live tab — real cricket, not mocked. A Cricbuzz real-time API feeds the NestJS backend, which caches it (60s while a match is live) so thousands of users cost one upstream call, then reshapes the messy JSON into exactly what each screen needs: today's matches ranked cricinfo-style (ICC events and internationals first — women's included), full scorecards for both innings, and ball-by-ball commentary.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">And the Live tab · real cricket</div><h2>Real scores. <span class="grad">No scraping.</span></h2></div>
+    <div class="fill row mt-s" style="gap:3vw;align-items:center">
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-live-home.png" alt=""></div><div class="cap">Live · ball-by-ball<small>score header + commentary</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-live-scorecard.png" alt=""></div><div class="cap">Full scorecard<small>both innings · the live chase</small></div></div>
+      <div class="col fill gap-m">
+        <p class="lead">The Live tab is real cricket, not mocked — today's matches, full scorecards and ball-by-ball commentary, straight from the Cricbuzz API.</p>
+        <div class="steps">
+          <div class="step"><span class="b n">1</span><div><div class="st">Fetch</div><div class="sd">Cricbuzz API — live matches · scorecards · commentary · series &amp; squads</div></div></div>
+          <div class="step"><span class="b n">2</span><div><div class="st">Cache &amp; rank</div><div class="sd">NestJS proxy · 60s live cache · ranked cricinfo-style — internationals first</div></div></div>
+          <div class="step"><span class="b n">3</span><div><div class="st">Render</div><div class="sd">series pills · both innings · batters, bowlers &amp; the live chase</div></div></div>
+        </div>
+        <div class="row wrap gap-s" style="gap:9px"><span class="chip y">Cricbuzz API</span><span class="chip">one upstream call for all users</span></div>
       </div>
     </div>
   </section>
