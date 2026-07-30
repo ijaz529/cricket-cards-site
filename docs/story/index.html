@@ -183,9 +183,9 @@
     <div class="col stagger" style="gap:6px"><div class="kicker">The game · in action</div><h2>Call a stat. <span class="grad">Better wins.</span></h2></div>
     <div class="grid4 fill mt-m" style="align-items:start">
       <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-toss.png" alt=""></div><div class="cap">The toss<small>real lineups · winner plays first</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-duel.png" alt=""></div><div class="cap">The duel<small>better stat wins the card</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-win.png" alt=""></div><div class="cap">Round won<small>higher number wins</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-matchresult.png" alt=""></div><div class="cap">Match reward<small>free cards every match · 2 for a win</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-match.png" alt=""></div><div class="cap">Call a stat<small>your card, your call — 30s a turn</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-win.png" alt=""></div><div class="cap">Round won<small>better number takes the card</small></div></div>
+      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-reward.png" alt=""></div><div class="cap">Match reward<small>a free card every match · 2 for a win</small></div></div>
     </div>
   </section>
 
@@ -203,12 +203,19 @@
   <!-- 13 · LIVE SCORES -->
   <section class="slide" data-notes="There's also a Live tab — real cricket, not mocked. A Cricbuzz real-time API feeds the NestJS backend, which caches it (60s while a match is live) so thousands of users cost one upstream call, then reshapes the messy JSON into exactly what each screen needs: today's matches ranked cricinfo-style (ICC events and internationals first — women's included), full scorecards for both innings, and ball-by-ball commentary.">
     <div class="col stagger" style="gap:6px"><div class="kicker">And the Live tab · real cricket</div><h2>Real scores. <span class="grad">No scraping.</span></h2></div>
-    <div class="fill row center mt-s" style="gap:2.4vw;align-items:start">
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-live-home.png" alt=""></div><div class="cap">Today's matches<small>ranked like cricinfo — internationals first</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-live-scorecard.png" alt=""></div><div class="cap">Full scorecard<small>both innings · batters, bowlers, live chase</small></div></div>
-      <div class="col center"><div class="phone wide ph-h54"><img src="assets/s-live-commentary.png" alt=""></div><div class="cap">Ball-by-ball<small>recent balls + live commentary</small></div></div>
+    <div class="fill row mt-s" style="gap:3vw;align-items:center">
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-live-home.png" alt=""></div><div class="cap">Live · ball-by-ball<small>score header + commentary</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-live-scorecard.png" alt=""></div><div class="cap">Full scorecard<small>both innings · the live chase</small></div></div>
+      <div class="col fill gap-m">
+        <p class="lead">The Live tab is real cricket, not mocked — today's matches, full scorecards and ball-by-ball commentary, straight from the Cricbuzz API.</p>
+        <div class="steps">
+          <div class="step"><span class="b n">1</span><div><div class="st">Fetch</div><div class="sd">Cricbuzz API — live matches · scorecards · commentary · series &amp; squads</div></div></div>
+          <div class="step"><span class="b n">2</span><div><div class="st">Cache &amp; rank</div><div class="sd">NestJS proxy · 60s live cache · ranked cricinfo-style — internationals first</div></div></div>
+          <div class="step"><span class="b n">3</span><div><div class="st">Render</div><div class="sd">series pills · both innings · batters, bowlers &amp; the live chase</div></div></div>
+        </div>
+        <div class="row wrap gap-s" style="gap:9px"><span class="chip y">Cricbuzz API</span><span class="chip">one upstream call for all users</span></div>
+      </div>
     </div>
-    <div class="row wrap center gap-s mt-s" style="gap:9px;justify-content:center"><span class="chip y">Cricbuzz API</span><span class="chip">60s live cache</span><span class="chip">reshaped to the UI</span></div>
   </section>
 
   <!-- 2 · THE CARDS (bought) -->
