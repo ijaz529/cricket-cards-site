@@ -274,7 +274,8 @@
         <div class="node g"><span class="nt">⚙️ NestJS API</span><span class="nd">auth · game engine · caching — on Railway</span></div><div class="arrow">→</div>
         <div class="node g"><span class="nt">🍃 MongoDB Atlas</span><span class="nd">cards · users · matches · squads</span></div>
       </div>
-      <div class="row wrap center gap-s"><span class="chip">JWT + Google sign-in</span><span class="chip">match engine</span><span class="chip">REST endpoints</span><span class="chip">cron jobs</span></div>
+      <div class="panel glow" style="padding:7px;border-radius:13px"><img src="assets/d-github.png" alt="" style="max-height:40vh;width:auto;max-width:100%;border-radius:7px;display:block"></div>
+      <div class="row wrap center gap-s"><span class="chip">285 commits</span><span class="chip">JWT + Google sign-in</span><span class="chip">match engine</span><span class="chip">cron jobs</span><span class="chip y">182 deployments</span></div>
     </div>
   </section>
 
@@ -346,6 +347,25 @@
     </div>
   </section>
 
+  <!-- 15b · SHIP PIPELINE -->
+  <section class="slide" data-notes="Shipping is its own pipeline: Xcode signs and archives the build, TestFlight distributes it — every cut of every version — and the App Store listing is the end of the line. Build 37 is the current cut; the whole history is a story of small fast releases.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 9 · shipped — build → test → live</div><h2>From archive to <span class="grad">the store.</span></h2></div>
+    <div class="fill row mt-s" style="gap:1.5vw;align-items:stretch">
+      <div class="col" style="flex:1;gap:9px">
+        <div class="panel" style="padding:7px;border-radius:12px"><img src="assets/d-xcode.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
+        <div><h3 class="green">🔨 Xcode — build &amp; sign</h3><p style="margin-top:3px">Signing, capabilities and the release archive. <span class="chip" style="margin-left:4px">managed signing</span></p></div>
+      </div>
+      <div class="col" style="flex:1;gap:9px">
+        <div class="panel glow" style="padding:7px;border-radius:12px"><img src="assets/d-testflight.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
+        <div><h3 class="gold">✈️ TestFlight — every cut</h3><p style="margin-top:3px">Each build tested before it ships — 37 and counting. <span class="chip y" style="margin-left:4px">1.1.5 (37)</span></p></div>
+      </div>
+      <div class="col" style="flex:1;gap:9px">
+        <div class="panel" style="padding:7px;border-radius:12px"><img src="assets/d-appstore-page.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
+        <div><h3 class="green">🍏 The App Store — live</h3><p style="margin-top:3px">The real product page, downloadable today. <span class="chip" style="margin-left:4px">Cricket Cards Royale</span></p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- 16 · TAKEAWAY -->
   <section class="slide" data-notes="The whole climb, in order: a deck of cards, a sketch, a prompt, the backend, the data, the photos, the design, the store. Every tool here is available to anyone, mostly free. The barrier isn't code anymore — it's a clear idea, described well.">
     <div class="col stagger" style="gap:6px"><div class="kicker">The takeaway</div><h2>From a deck of cards <span class="grad">to the App&nbsp;Store.</span></h2></div>
@@ -368,7 +388,7 @@
 
   <!-- 15 · SHIPPED -->
   <section class="slide" data-notes="And it shipped — live on the App Store and Google Play, with real player photos, live scores, free card rewards and online play. From a deck of cards on a table to a real app on real phones.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 9 · shipped</div><h2>Live on <span class="grad">both stores.</span></h2></div>
+    <div class="col stagger" style="gap:6px"><div class="kicker">The result</div><h2>Live on <span class="grad">both stores.</span></h2></div>
     <div class="fill col center" style="gap:24px;justify-content:center">
       <img src="assets/logo-neon.png" alt="" style="width:310px;height:auto;margin-top:-14px;filter:drop-shadow(0 0 36px rgba(62,230,122,.32)) drop-shadow(0 0 60px rgba(228,99,90,.16))">
       <p class="lead center" style="max-width:820px">From a deck of cards on a table to a real game on real phones — iOS, Android, live cricket scores, and a free card with every match.</p>
