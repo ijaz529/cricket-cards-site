@@ -293,36 +293,32 @@
     </div>
   </section>
 
-  <!-- 7 · REAL PLAYER PHOTOS -->
-  <section class="slide" data-notes="With the data in place, the faces. Every card fronts a real photo of the player — headshots plus hand-picked action shots in the right kit, whites for Test, coloured jerseys for ODI and T20. Sourced from the Cricbuzz API and free-licensed archives like Wikimedia Commons, reviewed card by card, and every single image is credited on a public credits page.">
+  <!-- 7 · REAL PLAYER PHOTOS + DELIVERY (merged) -->
+  <section class="slide" data-notes="Every card fronts a real photo — sourced from Cricbuzz and free-licensed archives, reviewed card by card, credited on a public page, and served worldwide from a Supabase CDN. MongoDB stores only the URL; the image bytes never touch the database.">
     <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 6 · the photos</div><h2>Real players, <span class="grad">real photos.</span></h2></div>
-    <div class="fill row mt-s" style="gap:2.2vw;align-items:center">
-      <div class="col center"><div class="phone ph-h60"><img src="assets/s-akram.png" alt=""></div><div class="cap">Wasim Akram<small>photo gallery · swipe through the years</small></div></div>
-      <div class="col fill gap-m">
-        <p class="lead">Every card fronts a <b>real photo</b> — a headshot plus hand-picked action shots in the right kit: whites for Test, coloured jerseys for ODI &amp; T20.</p>
-        <div class="flow" style="max-width:none">
-          <div class="node"><span class="nt">📸 Sourced</span><span class="nd">Cricbuzz API + free-licensed archives (Wikimedia Commons)</span></div><div class="arrow">→</div>
-          <div class="node g"><span class="nt">👀 Reviewed</span><span class="nd">checked card by card — right player, right era, right kit</span></div><div class="arrow">→</div>
-          <div class="node y"><span class="nt">🏷️ Credited</span><span class="nd">every image attributed on a public credits page</span></div>
-        </div>
-        <div class="row wrap gap-s"><span class="chip y">700+ real photos</span><span class="chip">format-specific galleries</span><span class="chip">every image credited</span></div>
+    <div class="fill row mt-s" style="gap:1.9vw;align-items:center">
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-akram.png" alt=""></div><div class="cap">Photo gallery<small>Wasim Akram · swipe through the years</small></div></div>
+      <div class="col center"><div class="phone wide ph-h60"><img src="assets/s-kohli.png" alt=""></div><div class="cap">Real photo<small>Virat Kohli · real career stats</small></div></div>
+      <div class="col fill gap-s">
+        <div class="code"><span class="h k">▸ the photo pipeline</span>Cricbuzz API + Wikimedia Commons → reviewed card by card — right player, right era, right kit → <span class="y">headshot + action galleries</span> on 700+ cards</div>
+        <div class="code"><span class="h k">▸ the credits</span>every free-licensed image attributed on a <span class="y">public credits page</span> — licence + photographer, per photo</div>
+        <div class="code"><span class="h k">▸ the delivery</span>Supabase Storage → public bucket → CDN — MongoDB stores <span class="y">only the URL</span>; the image bytes never touch the database</div>
+        <div class="row" style="gap:9px;flex-wrap:wrap"><span class="chip">Wikimedia Commons</span><span class="chip y">licensed + credited</span><span class="chip">Supabase CDN</span><span class="chip">700+ real photos</span></div>
       </div>
     </div>
   </section>
 
-  <!-- 8 · SUPABASE CDN -->
-  <section class="slide" data-notes="And the delivery. All those photos live in Supabase Storage and are served over a CDN; MongoDB just stores the URL. Bytes stay off the database, and images load fast worldwide.">
-    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 7 · delivery</div><h2>Every photo, <span class="grad">served from a CDN.</span></h2></div>
-    <div class="fill row mt-s" style="gap:2.2vw;align-items:center">
-      <div class="col center"><div class="phone ph-h60"><img src="assets/s-kohli.png" alt=""></div><div class="cap">Virat Kohli<small>real photo · real career stats</small></div></div>
-      <div class="col fill gap-m">
-        <p class="lead">One pipeline for every image in the game.</p>
-        <div class="flow" style="max-width:none">
-          <div class="node y"><span class="nt">📸 Player photos</span><span class="nd">sourced + reviewed</span></div><div class="arrow">→</div>
-          <div class="node g"><span class="nt">🗄️ Supabase Storage → CDN</span><span class="nd">public buckets · fast worldwide</span></div>
-        </div>
-        <p>MongoDB stores only the <b>URL</b> — the image bytes never touch the database.</p>
-        <div class="row wrap gap-s"><span class="chip y">public bucket</span><span class="chip y">CDN delivery</span><span class="chip">700+ photos</span></div>
+  <!-- 8 · DATA & STORAGE -->
+  <section class="slide" data-notes="The data layer up close. MongoDB Atlas is the source of truth — every card, user and match as documents. Supabase Storage is the photo CDN — the cricket-players bucket serves every headshot and action shot worldwide. The NestJS API rides Railway, deployed on every push.">
+    <div class="col stagger" style="gap:6px"><div class="kicker">Chapter 7 · data &amp; storage</div><h2><span class="grad">MongoDB</span> + <span class="grad">Supabase.</span></h2></div>
+    <div class="fill row mt-s" style="gap:1.8vw;align-items:stretch">
+      <div class="col" style="flex:1;gap:9px">
+        <div class="panel" style="padding:7px;border-radius:12px"><img src="assets/d-mongodb.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
+        <div><h3 class="green">🍃 MongoDB Atlas — the data layer</h3><p style="margin-top:3px">Every card, user and match — the source of truth. <span class="chip" style="margin-left:4px">651 active cards</span> <span class="chip">users</span> <span class="chip">matches</span></p></div>
+      </div>
+      <div class="col" style="flex:1;gap:9px">
+        <div class="panel glow" style="padding:7px;border-radius:12px"><img src="assets/d-supabase-store.png" alt="" style="width:100%;border-radius:7px;display:block"></div>
+        <div><h3 class="gold">⚡ Supabase Storage — the photo CDN</h3><p style="margin-top:3px">The <b>cricket-players</b> bucket serves every photo worldwide; the API rides Railway, deployed on push. <span class="chip y" style="margin-left:4px">public bucket</span> <span class="chip y">🚂 Railway API</span></p></div>
       </div>
     </div>
   </section>
