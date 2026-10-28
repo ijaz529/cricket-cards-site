@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Get Cricket Cards</title>
+<meta name="description" content="Nostalgia & Ball Knowledge. In your Pocket. Cricket Cards on the App Store and Google Play." />
+<meta property="og:title" content="Get Cricket Cards" />
+<meta property="og:description" content="Nostalgia & Ball Knowledge. In your Pocket." />
+<meta property="og:image" content="https://ijaz529.github.io/cricket-cards-site/get/og.jpg" />
+<meta property="og:url" content="https://ijaz529.github.io/cricket-cards-site/get/" />
+<meta name="twitter:card" content="summary_large_image" />
+<script>
+  // One link for every phone (Instagram link sticker, bio): iPhone/iPad go to the App Store, Android to Google
+  // Play. Anything else stays on this page and picks a store.
+  var APPSTORE = 'https://apps.apple.com/app/id6766179623';
+  var PLAYSTORE = 'https://play.google.com/store/apps/details?id=com.clashcards.android.cricket';
+  var ua = navigator.userAgent || '';
+  var ios = /iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  if (/android/i.test(ua)) location.replace(PLAYSTORE);
+  else if (ios) location.replace(APPSTORE);
+</script>
+<style>
+  :root { --cream:#F5EDD8; --cream2:rgba(245,237,216,0.78); --gold:#E8C365; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; background:#0B2410; color:var(--cream);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
+  .wrap { min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:32px 22px calc(32px + env(safe-area-inset-bottom)); text-align:center;
+    background:radial-gradient(120% 70% at 50% 45%, #2C6A28 0%, #18431A 55%, #0B2410 100%); }
+  .logo { width:min(300px, 72vw); height:auto; filter:drop-shadow(0 14px 24px rgba(0,0,0,0.5)); }
+  h1 { font-size:clamp(19px, 6vw, 24px); line-height:1.2; font-weight:900; letter-spacing:-0.5px; margin:22px 0 0; }
+  h1 span { display:block; }
+  h1 .gold { color:var(--gold); }
+  .stores { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; margin-top:30px; }
+  .stores img { display:block; height:52px; width:auto; }
+  .note { margin-top:22px; font-size:13px; color:var(--cream2); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="logo.webp" alt="Cricket Cards" />
+    <h1><span>Nostalgia &amp; Ball Knowledge.</span><span class="gold">In your Pocket.</span></h1>
+    <div class="stores">
+      <a href="https://apps.apple.com/app/id6766179623"><img src="app-store.svg" alt="Download on the App Store" /></a>
+      <a href="https://play.google.com/store/apps/details?id=com.clashcards.android.cricket"><img src="google-play.png" alt="Get it on Google Play" /></a>
+    </div>
+    <p class="note">Free to play. No ads.</p>
+  </div>
+</body>
+</html>
